@@ -1,0 +1,72 @@
+[tool.poetry]
+name = "fastapi-app-template"
+version = "0.1.0"
+description = ""
+authors = ["Olga Melikhova <melihovao@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+alembic = "1.13.3"
+asyncpg = "0.29.0"
+pydantic-settings = "2.5.2"
+sqlalchemy = "2.0.35"
+uvicorn = "0.31.1"
+punq = "^0.7.0"
+typer = "^0.12.5"
+uvloop = "^0.21.0"
+httpx = "^0.27.2"
+asyncio = "^3.4.3"
+fastapi = {extras = ["all"], version = "^0.115.2"}
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+isort = "^5.13.2"
+ruff = "^0.6.9"
+
+[tool.poetry.group.test.dependencies]
+pytest = {extras = ["async"], version = "^8.3.3"}
+pytest-asyncio = "^0.21.1"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+
+[tool.black]
+line-length = 110
+target-version = ['py312']  # Целевая версия Python
+
+[tool.isort]
+py_version = 312
+profile = "black"  # Совместимость с Black (использует правила форматирования Black)
+line_length = 110  # Длина строки (должна совпадать с Black)
+multi_line_output = 3  # Определяет стиль вывода (3 — вертикальный вывод, предпочтительный для Black)
+include_trailing_comma = true  # Включить запятую в конце списка
+force_grid_wrap = 0  # Разбиение по сетке (0 для выключения)
+use_parentheses = true  # Использование скобок для длинных импортов
+ensure_newline_before_comments = true  # Перенос строки перед комментариями
+virtual_env = "./.venv"
+
+[tool.ruff]
+line-length = 110
+lint.select = [
+  "F", "E", "W", "C90", "UP",
+  "N", "YTT", "S", "BLE", "FBT",
+  "B", "A", "C4", "T20", "Q",
+  "RET", "SIM", "ARG", "ERA",
+  "PGH"
+]
+target-version = "py312" 
+exclude = [
+    ".git",
+    "__pycache__",
+    "app/core/database/revisions",
+    ".venv",
+]
+lint.ignore = ["S104", "B008", "S101"]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
