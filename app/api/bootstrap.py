@@ -28,6 +28,6 @@ def resolve_high_level_routers(container: punq.Container):
 
 
 def resolve_template_app(container: punq.Container):
-    container.register(service=template.router.TemplateRouter)
-    container.register(service=template.service.TemplateService)
-    container.register(service=template.repository.TemplateRepository)
+    container.register(service=template.base.router.TemplateBaseRouter)
+    container.register(service=template.base.service.TemplateService)
+    container.register(service=template.base.repository.TemplateRepository)

@@ -6,9 +6,9 @@ from app.api.v1 import template
 class V1Router:
     def __init__(
         self,
-        template_router: template.router.TemplateRouter,
+        template_base_router: template.base.router.TemplateBaseRouter,
     ):
-        self._template_router = template_router
+        self._template_base_router = template_base_router
 
     @property
     def router(self) -> fastapi.APIRouter:  # noqa: F821
@@ -17,4 +17,4 @@ class V1Router:
         return router
 
     def _update_router(self, router: fastapi.APIRouter) -> None:
-        router.include_router(self._template_router.router)
+        router.include_router(self._template_base_router.router)

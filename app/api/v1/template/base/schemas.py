@@ -2,6 +2,8 @@ import uuid
 
 import pydantic
 
+from app.api.globals import schemas as global_schemas
+
 
 # CREATE
 class TemplateData(pydantic.BaseModel):
@@ -29,3 +31,4 @@ class GetTemplateByIdResponse(pydantic.BaseModel):
 # GET LIST
 class GetTemplatesListResponse(pydantic.BaseModel):
     response: list[Template]
+    paginator: global_schemas.Paginator

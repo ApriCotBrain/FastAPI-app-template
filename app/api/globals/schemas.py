@@ -11,3 +11,9 @@ class ErrorMessage(pydantic.BaseModel):
 
 class ErrorsContent(pydantic.BaseModel):
     errors: list[ErrorMessage]
+
+
+class Paginator(pydantic.BaseModel):
+    limit: int
+    offset: int
+    total: int

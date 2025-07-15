@@ -1,7 +1,3 @@
-from app.api.v1.template import repository, router, service
+from app.api.v1.template import base
 
-__all__ = (
-    repository,
-    router,
-    service,
-)
+__all__ = (base,)
