@@ -1,0 +1,36 @@
+version: 1
+disable_existing_loggers: false
+formatters:
+  base:
+    style: '{'
+    format: '{asctime} {levelname}:{message}:{pathname}:{funcName}:{lineno}'
+    datefmt: '%d-%b-%y %H:%M:%S'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: base
+    stream: ext://sys.stdout
+  file_info:
+    class: logging.FileHandler
+    level: INFO
+    formatter: base
+    filename: 'INFO.log'
+  file_warning:
+    class: logging.FileHandler
+    level: WARNING
+    formatter: base
+    filename: 'ERROR.log'
+  file_error:
+    class: logging.FileHandler
+    level: ERROR
+    formatter: base
+    filename: 'ERROR.log'
+loggers:
+  __main__:
+    level: DEBUG
+    handlers: [console, file_info, file_warning, file_error]
+    propagate: no
+root:
+  level: DEBUG
+  handlers: [console]

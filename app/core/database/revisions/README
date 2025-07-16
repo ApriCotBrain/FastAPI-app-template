@@ -1,0 +1,10 @@
+EN
+After creating a migration, update to the latest revision.
+Then, roll back to the previous revision to verify its correctness, and subsequently update again to the latest revision.
+Every migration must be verified. Migration is considered verified if system comments are removed
+
+
+RU
+После создания миграции выполните обновление до актуальной ревизии.
+Затем выполните откат к предыдущей ревизии для проверки её корректности, после чего повторно выполните обновление до актуальной ревизии.
+Каждая миграция должна быть проверена. Миграция считается подтвержденной, если удалены системные комментарии.
