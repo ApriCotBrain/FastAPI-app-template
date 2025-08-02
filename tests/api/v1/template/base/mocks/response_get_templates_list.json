@@ -1,0 +1,12 @@
+{
+  "response": [
+    {
+      "name": "new test template"
+    }
+  ],
+  "paginator": {
+    "limit": 20,
+    "offset": 0,
+    "total": 1
+  }
+}
